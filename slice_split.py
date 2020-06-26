@@ -75,11 +75,11 @@ def main():
 	print('Initializing...')
 
 	# Get number of lines per frame in given .xyz file (number of atoms + headers..)
-	# File must contain in each frame one regularly recurring identifier to get number of lines!
+	# File must contain in each frame one regularly occurring pattern to get number of lines!
 	fs = frame_size(file)
 
-	# n is the number of lines in each subtrajectory in case of splitting OR the number of lines
-	# skipped between two consecutive frames in a coarse-grained trajectory
+	# n is the number of lines in each subtrajectory in case of splitting OR the number of 
+	# lines skipped between two consecutive frames in a coarse-grained trajectory
 	n = int(chunk*fs)
 
 	if SPLIT:
