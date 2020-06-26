@@ -22,8 +22,9 @@ def slice(n,fs):
 			while True:
 				next_f = list(islice(inp, n))
 				if not next_f:
+					print('\nDone!')
 					break
-				print('Processing chunk number %s' % (i+1))
+				print('Processing chunk number %s' % (i+1),end='\r')
 				j = 0
 				for line in next_f:
 					if j < fs:
@@ -40,8 +41,9 @@ def split(n):
 		while True:
 			next_n = list(islice(inp, n))
 			if not next_n:
+				print('\nDone!')
 				break
-			print('Processing chunk number %s' % (i+1))
+			print('Processing chunk number %s' % (i+1),end='\r')
 			with open('trj_%s.xyz' % i, 'w') as out:
 				for line in next_n:
 					out.write('%s' % line)
@@ -63,7 +65,7 @@ def frame_size(file):
 
 def main():
 
-	print('Initializing...\n')
+	print('Initializing...')
 	fs = frame_size(file)
 	n = int(chunk*fs)
 
@@ -71,6 +73,9 @@ def main():
 		split(n)
 	elif SLICE:
 		slice(n,fs)
+	else:
+		print('Please specify either -sp or -sl!')
+		print('Terminating.')
 
 			
 if __name__ == '__main__':
