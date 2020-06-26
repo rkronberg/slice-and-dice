@@ -7,5 +7,4 @@ This is a simple tool for manipulating trajectories from molecular dynamics (MD)
 ```bash
 slice_split.py [-h] -i INPUT -n NUM [-sp] [-sl]
 ```
-
-Supports currently only ```.xyz``` trajectory formats.
+```NUM``` is the number of frames in each subtrajectory ```(-sp)``` OR the new stepsize in a coarse-grained trajectory after slicing ```(-sl)```. INPUT supports currently only ```.xyz``` trajectory formats.
