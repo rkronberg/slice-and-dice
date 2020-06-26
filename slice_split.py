@@ -18,19 +18,19 @@ def slice(n,fs):
 
 	i = 0
 	with open(file, 'r') as inp:
-		with open('trj_sliced.xyz' % i, 'w') as out:
+		with open('trj_sliced.xyz', 'w') as out:
 			while True:
 				next_f = list(islice(inp, n))
 				if not next_f:
 					break
 				print('Processing chunk number %s' % (i+1))
-					j = 0
-					for line in next_f:
-						if j < fs:
-							out.write('%s' % line)
-							j += 1
-						else:
-							break
+				j = 0
+				for line in next_f:
+					if j < fs:
+						out.write('%s' % line)
+						j += 1
+					else:
+						break
 				i += 1
 
 def split(n):
