@@ -1,10 +1,10 @@
 # Trajectory splitter and slicer
 
-This is a simple tool for manipulating trajectories from molecular dynamics (MD) simulations. The SLICE-option coarse-grains a trajectory using a larger time-step while the SPLIT-option splits the trajectory into multiple subtrajectories (original time-step). Possibly useful for handling huge trajectory files.
+This is a simple tool for manipulating trajectories from molecular dynamics (MD) simulations. The trajectory can be either split into chunks (original timestep) or coarse-grained using a larger timestep. Possibly useful for handling huge trajectory files.
 
 ## Usage
 
 ```bash
-slice_split.py [-h] -i INPUT -n NUM [-sp] [-sl]
+slice_split.py [-h] -i INPUT (-n NUM | -ts TIMESTEP) [-f FIRST] [-l LAST]
 ```
-```NUM``` is the number of frames in each subtrajectory if the SPLIT-flag ```-sp``` is specified. On the other hand, if the SLICE-flag ```-sl``` is given, ```NUM``` is the new stepsize in the coarse-grained trajectory. INPUT supports currently only ```.xyz``` trajectory formats.
+```NUM``` is the number of frames in each subtrajectory if splitting trajectory into chunks. On the other hand, if the trajectory is coarse-grained the flag  ```-ts``` is used to provide the new timestep of the sliced trajectory. INPUT supports currently only ```.xyz``` trajectory formats. The optional ```-f``` and ```-l``` flags expect the first and last frames to be included, respectively. If unspecified, the full trajectory is considered.
