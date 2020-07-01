@@ -7,4 +7,4 @@ This is a simple tool for manipulating trajectories from molecular dynamics (MD)
 ```bash
 slice_split.py [-h] -i INPUT (-n NUM | -ts TIMESTEP) [-f FIRST] [-l LAST]
 ```
-```NUM``` is the number of frames in each subtrajectory if splitting trajectory into chunks. On the other hand, if the trajectory is coarse-grained the flag  ```-ts``` is used to provide the new timestep of the sliced trajectory. INPUT supports currently only ```.xyz``` trajectory formats. The optional ```-f``` and ```-l``` flags expect the first and last frames to be included, respectively. If unspecified, the full trajectory is considered.
+```NUM``` is the number of frames in each subtrajectory if splitting trajectory into chunks. On the other hand, if the trajectory is coarse-grained, the flag  ```-ts``` is used to provide the new timestep of the sliced trajectory. INPUT supports currently only ```.xyz``` trajectory formats. The optional ```-f``` and ```-l``` flags expect the first and last frames to be included, respectively. If unspecified, the full trajectory is considered.
