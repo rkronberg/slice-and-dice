@@ -8,6 +8,7 @@ rasmus.kronberg@aalto.fi
 """
 
 from argparse import ArgumentParser
+from time import time
 import methods
 
 def parse():
@@ -40,6 +41,7 @@ def main():
 	first = args['first']
 	last = args['last']
 
+	t0 = time()
 	with open(file, 'r') as inp:
 		# If fsize is not specified, tries to get number of lines per frame (number 
 		# of atoms + headers) based on given expression that repeats regularly every 
@@ -47,7 +49,7 @@ def main():
 		if regex is not None:
 			fsize = methods.frame_size(inp, regex)
 			if fsize is None:
-				print('Regex not found. Check your input or set frame size by hand.')
+				print('Regex not found. Check input file or set frame size by hand.')
 				quit()
 
 		# Rewind file to specified start and slice or split trajectory 
@@ -57,7 +59,7 @@ def main():
 		else:
 			methods.split(inp, nframes, fsize, first, last)
 
-	print('\nDone!')
+	print('\nDone! (%.1f s elapsed)' % (time()-t0))
 
 if __name__ == '__main__':
 	main()
