@@ -1,11 +1,9 @@
 from itertools import islice
-from numba import jit
 
 def slice(inp, step, fsize, first, last):
 
 	# Coarse-grain input trajectory by slicing every nth frame
 	with open('trj_sliced.xyz', 'w') as out:
-		@jit(nopython=True)
 		for i, frame in enumerate(range(first, last, step)):
 			next_n = list(islice(inp, step*fsize))
 			if not next_n:
