@@ -1,4 +1,5 @@
 from itertools import islice
+import re
 
 
 def slice(inp, step, fsize, first, last):
@@ -32,11 +33,12 @@ def split(inp, nframes, fsize, first, last):
 
 def frame_size(inp, regex):
 
-    # Calculate the number of lines per frame in input trajectory
+    # Calculate the number of lines per frame in input trajectory by
+    # counting number of lines between 1st and 2nd occurence of regex
     count = None
     for line in inp:
-        # Count number of lines between the 1st and 2nd occurence of regex
-        if regex in line:
+        match = re.search(regex, line)
+        if match is not None:
             if count is None:
                 count = 1
             else:

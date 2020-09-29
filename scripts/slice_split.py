@@ -58,8 +58,8 @@ def main():
         if regex is not None:
             fsize = methods.frame_size(inp, regex)
             if fsize is None:
-                print('Regex not found. Check input file \
-                    or set frame size by hand.')
+                print('Regex not found.')
+                print('Check input file or set frame size by hand.')
                 quit()
 
         # Rewind file to specified start and slice or split trajectory
